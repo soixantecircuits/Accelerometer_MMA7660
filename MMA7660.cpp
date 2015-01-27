@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
  
-#include <Wire.h>
+#include <Arduino.h>
 #include "MMA7660.h"
 /*Function: Write a byte to the register of the MMA7660*/
 void MMA7660::write(uint8_t _register, uint8_t _data)
@@ -85,10 +85,10 @@ void MMA7660::getXYZ(int8_t *x,int8_t *y,int8_t *z)
     {
         if(count < 3)
         {
-            while ( val[count] > 63 )  // reload the damn thing it is bad
-            {
+            //while ( val[count] > 63 )  // reload the damn thing it is bad
+            //{
               val[count] = Wire.read();
-            }
+            //}
         }
         count++;
     }
